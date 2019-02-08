@@ -1,14 +1,8 @@
 import * as THREE from 'three';
 import OrbitControls from 'three-orbitcontrols';
 
-let onWindowResize = () => {
-	this.camera.aspect = window.innerWidth / window.innerHeight;
-	this.camera.updateProjectionMatrix();
-	this.renderer.setSize(window.innerWidth, window.innerHeight);
-};
-
-class Framework {
-	constructor() {
+export default class Engine {
+	constructor(update) {
 		this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color(0x556677);
 		this.camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
@@ -26,16 +20,6 @@ class Framework {
 		this.controls.maxDistance = 100;
 		this.controls.maxPolarAngle = Math.PI;
 
-		let container = document.createElement('div');
-		container.className = 'container';
-		container.style.width = '100vw';
-		container.style.height = '100vh';
-		container.style.overflow = 'hidden';
-		container.appendChild(this.renderer.domElement);
-		document.body.appendChild(container);
-
-		window.addEventListener('resize', onWindowResize, false);
-
 		let lastUpdateTime = 0;
 		let tick = () => {
 			let dt = 0;
@@ -44,21 +28,11 @@ class Framework {
 			}
 			lastUpdateTime = new Date().getTime();
 			this.renderer.render(this.scene, this.camera);
-			this.update(dt);
 			this.controls.update();
+			if (update) update(dt);
 			requestAnimationFrame(tick);
-			this.start();
 		};
 
-		this.start();
 		tick();
 	}
-
-	tick() {}
-
-	start() {}
-
-	update(dt) {}
 }
-
-export default Framework;
