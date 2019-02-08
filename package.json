@@ -1,12 +1,21 @@
 {
-  "name": "playground",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "playground",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"build": "webpack",
+		"start": "webpack --watch --info-verbosity verbose"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"three": "^0.101.1",
+		"three-orbitcontrols": "^2.101.1"
+	},
+	"devDependencies": {
+		"webpack": "^4.29.3",
+		"webpack-cli": "^3.2.3"
+	}
 }

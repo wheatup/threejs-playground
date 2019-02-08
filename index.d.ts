@@ -1,1 +1,0 @@
-/// <reference path="typings/globals/three/index.d.ts" />
