@@ -17,7 +17,7 @@ export default class Playground extends Scene {
 		let sphere = new THREE.Mesh(geo, mat);
 		sphere.position.z = 0;
 		sphere.castShadow = true;
-		sphere.position.y = 1;
+		sphere.position.y = 2;
 
 		geo = new THREE.ConeGeometry(3, 4, 20, 1, true);
 		let cone = new THREE.Mesh(geo, mat);
@@ -34,9 +34,9 @@ export default class Playground extends Scene {
 		this.engine.scene.add(ground);
 
 		let light = new THREE.DirectionalLight(0xffffff, 0.5);
-		light.position.x = 1;
+		light.position.x = 1.5;
 		light.position.y = 1;
-		light.position.z = 1;
+		light.position.z = 1.25;
 		light.castShadow = true;
 		this.engine.scene.add(light);
 
